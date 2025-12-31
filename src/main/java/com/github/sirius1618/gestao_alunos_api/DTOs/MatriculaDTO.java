@@ -1,12 +1,11 @@
 package com.github.sirius1618.gestao_alunos_api.DTOs;
 
-import com.github.sirius1618.gestao_alunos_api.model.Aluno;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public record matriculaDTO(
+public record MatriculaDTO(
     Long id,
 
     @NotBlank(message = "É preciso ter o código da matricula")
@@ -26,6 +25,6 @@ public record matriculaDTO(
     @NotNull(message = "Data de inicio é obrigatorio")
     LocalDateTime dataAtualizacoa,
 
-    Aluno aluno
+    Long idAluno
 ) {
 }
