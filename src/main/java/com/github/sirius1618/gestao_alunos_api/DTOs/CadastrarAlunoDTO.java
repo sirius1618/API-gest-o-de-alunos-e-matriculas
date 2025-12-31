@@ -22,5 +22,5 @@ public record CadastrarAlunoDTO(
 
     @Valid
     @NotEmpty(message = "O aluno deve ter pelo menos uma matricula")
-    List<Matricula>
+    List<MatriculaDTO>
     matriculas) {}
