@@ -1,5 +1,6 @@
 package com.github.sirius1618.gestao_alunos_api.model;
 
+import com.github.sirius1618.gestao_alunos_api.DTOs.RequestMatriculaDTO;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -39,4 +40,32 @@ public class Aluno {
   protected void atualizandoData() {
     this.dataAtualizacao = LocalDateTime.now();
   }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public void setTelefone(String telefone) {
+      this.telefone = telefone;
+  }
+
+  public void setNome(String nome) {
+        this.nome = nome;
+  }
+
+    public void setMatriculas(List<Matricula> matriculas) {
+        this.matriculas = matriculas;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public List<Matricula> getMatriculas() {
+        return matriculas;
+    }
 }
