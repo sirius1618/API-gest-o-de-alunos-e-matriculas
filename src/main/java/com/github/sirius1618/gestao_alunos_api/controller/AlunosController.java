@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/alunos")
 public class AlunosController {
@@ -22,5 +24,11 @@ public class AlunosController {
   public ResponseEntity<ResponsetCadastrarAlunoDTO> cadastrarAluno(@RequestBody @Valid RequestCadastrarAlunoDTO dados) {
     var aluno = alunoService.salvar(dados);
     return ResponseEntity.status(HttpStatus.CREATED).body(aluno); // 201
+  }
+
+  @GetMapping
+  public ResponseEntity<List<ResponsetCadastrarAlunoDTO>> listarTodosAlunos() {
+    var listaAlunos = alunoService.listarAlunos();
+    return ResponseEntity.status(HttpStatus.OK).body(listaAlunos);
   }
 }

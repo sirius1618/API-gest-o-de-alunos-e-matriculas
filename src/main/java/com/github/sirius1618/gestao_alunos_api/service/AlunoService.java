@@ -9,6 +9,8 @@ import com.github.sirius1618.gestao_alunos_api.repository.AlunoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AlunoService {
 
@@ -63,5 +65,27 @@ public class AlunoService {
             alunoSalvo.getNome(),
             matriculaResposnse
         );
+    }
+
+    public List<ResponsetCadastrarAlunoDTO> listarAlunos() {
+        List<Aluno> listaAluno = alunoRepository.findAll();
+
+        return listaAluno.stream().map(aluno -> {
+
+            var responseMatricula = aluno.getMatriculas().stream().map(matricula -> {
+                return new ResponseMatriculaDTO(
+                matricula.getId(),
+                matricula.getCoidgoMatricula(),
+                matricula.getNomeCurso(),
+                matricula.getDataInicio()
+                );
+            }).toList();
+
+            return new ResponsetCadastrarAlunoDTO(
+                    aluno.getId(),
+                    aluno.getNome(),
+                    responseMatricula
+            );
+        }).toList();
     }
 }
