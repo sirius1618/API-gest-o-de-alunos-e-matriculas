@@ -5,7 +5,7 @@ import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public record MatriculaDTO(
+public record RequestMatriculaDTO(
     Long id,
 
     @NotBlank(message = "É preciso ter o código da matricula")

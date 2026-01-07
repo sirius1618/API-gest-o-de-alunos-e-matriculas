@@ -7,7 +7,7 @@ import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.List;
 
-public record CadastrarAlunoDTO(
+public record RequestCadastrarAlunoDTO(
     @NotBlank(message = "O nome é obrigatorio")
     @Size(min = 3, max = 100, message = "O nome deve ter entre 3 a 100 caracteres")
     String nome,
@@ -22,5 +22,5 @@ public record CadastrarAlunoDTO(
 
     @Valid
     @NotEmpty(message = "O aluno deve ter pelo menos uma matricula")
-    List<MatriculaDTO>
+    List<RequestMatriculaDTO>
     matriculas) {}
