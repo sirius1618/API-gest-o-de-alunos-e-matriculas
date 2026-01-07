@@ -39,4 +39,20 @@ public class Matricula {
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getCoidgoMatricula() {
+        return coidgoMatricula;
+    }
+
+    public String getNomeCurso() {
+        return nomeCurso;
+    }
+
+    public LocalDate getDataInicio() {
+        return dataInicio;
+    }
 }
