@@ -23,4 +23,20 @@ public class Matricula {
   @ManyToOne
   @JoinColumn(name = "aluno_id")
   private Aluno aluno;
+
+    public void setCoidgoMatricula(String coidgoMatricula) {
+        this.coidgoMatricula = coidgoMatricula;
+    }
+
+    public void setNomeCurso(String nomeCurso) {
+        this.nomeCurso = nomeCurso;
+    }
+
+    public void setDataInicio(LocalDate dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
 }
